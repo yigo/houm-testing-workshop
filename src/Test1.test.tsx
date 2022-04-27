@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+import App from "./Test1";
 
 test("Should show sum of  two values", () => {
   // prepare las variables del test o el escenario
