@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import { render, screen } from "@testing-library/react";
 import nock from "nock";
-import Test2 from "./Test2";
+import Test2 from "./RemoteContent";
  
 const response = {
   "count": 1126,
@@ -27,7 +27,7 @@ describe("Test2", () => {
       .query({ offset: 0, limit: 10 })
       .reply(200, response);
 
-    const { debug } =render(<Test2 />);
+    render(<Test2 />);
     // asserting for waiting state
     expect(screen.getByText("Cargando")).toBeInTheDocument();
 
@@ -46,7 +46,7 @@ describe("Test2", () => {
       .query({ offset: 0, limit: 10 })
       .reply(400, "service error");
   
-    const { debug } =render(<Test2 />);
+    render(<Test2 />);
     // asserting for waiting state
     expect(screen.getByText("Cargando")).toBeInTheDocument();
     // asserting for end state === error
